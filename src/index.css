@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* 스크롤바 넓이 지정 */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+::-webkit-scrollbar-track {
+    background-color: rgba(170, 204, 255, 0);
+}
+
+/* 스크롤바 손잡이 꾸미기 */
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 5px;
+    margin-right: 1px;
+}
