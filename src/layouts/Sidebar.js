@@ -1,28 +1,21 @@
 import defaultProfile from '../images/default_profile.png';
-import { useState } from "react";
+import useSidebarStore from '../stores/useSidebarStore';
 
 const Sidebar = () => {
-    const [isOpenSideMenu, setIsOpenSideMenu] = useState(true);
-    const [openList, setOpenList] = useState([]);
-
-    // 사이드메뉴 전체 열기 닫기
-    const toggleSideMenu = () => {
-        setIsOpenSideMenu(isOpenSideMenu => !isOpenSideMenu);
-    }
-
-    // 그룹 메뉴 열기 닫기
-    const toggleSideGroupMenu = (groupNumber) => {
-        if (isOpenSideGroupMenu(groupNumber)) {
-            openList.splice(openList.indexOf(groupNumber), 1);
-            setOpenList([...openList]);
-        } else {
-            setOpenList((openList) => [...openList, groupNumber]);
-        }
-    }
+    const {groupCategoryOpenList, pushGroupCategoryOpenList, popGroupCategoryOpenList} = useSidebarStore();
 
     // 그룹 메뉴 열림 닫힘 여부
     const isOpenSideGroupMenu = (groupNumber) => {
-        return openList.indexOf(groupNumber) > -1;
+        return groupCategoryOpenList.indexOf(groupNumber) > -1;
+    }
+
+    // 그룹 메뉴 열기 닫기
+    const toggleGroupCategory = (groupNumber) => {
+        if (isOpenSideGroupMenu(groupNumber)) {
+            popGroupCategoryOpenList(groupNumber);
+        } else {
+            pushGroupCategoryOpenList(groupNumber);
+        }
     }
 
     return (
@@ -35,7 +28,7 @@ const Sidebar = () => {
             <div className="pb-4 pr-4 flex flex-col overflow-y-auto">
                 {/* 그룹 카테고리 */}
                 <div>
-                    <div onClick={() => toggleSideGroupMenu(1)} className="mt-1.5 p-4 rounded-lg flex justify-between">
+                    <div onClick={() => toggleGroupCategory(1)} className="mt-1.5 p-4 rounded-lg flex justify-between">
                         <div>그룹1</div>
                         <div>{isOpenSideGroupMenu(1) ? '▲' : '▼'}</div>
                     </div>
@@ -48,7 +41,7 @@ const Sidebar = () => {
                 </div>
 
                 <div>
-                    <div onClick={() => toggleSideGroupMenu(2)} className="mt-1.5 p-4 rounded-lg flex justify-between">
+                    <div onClick={() => toggleGroupCategory(2)} className="mt-1.5 p-4 rounded-lg flex justify-between">
                         <div>그룹2</div>
                         <div>{isOpenSideGroupMenu(2) ? '▲' : '▼'}</div>
                     </div>

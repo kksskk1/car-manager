@@ -1,13 +1,14 @@
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
+import useSidebarStore from "../stores/useSidebarStore";
 
 const Layout = (props) => {
-    const isOpenSideMenu = true;
+    const {isOpenSidebar} = useSidebarStore();
 
     return (
         <div className="w-full flex bg-gray-100">
-            <aside className={'w-80 h-screen py-4 pl-4 text-white ' + (isOpenSideMenu ? '' : 'hidden')}>
+            <aside className={'w-80 h-screen py-4 pl-4 text-white ' + (isOpenSidebar ? '' : 'hidden')}>
                 <Sidebar />
             </aside>
             <div className="w-full min-h-screen p-4 flex flex-col">

@@ -1,19 +1,20 @@
 import { CiMenuBurger } from "react-icons/ci";
 import { useState } from "react";
+import useSidebarStore from "../stores/useSidebarStore";
 
 const Header = () => {
-    const [isOpenSideMenu, setIsOpenSideMenu] = useState(true);
+    const {isOpenSidebar, setIsOpenSidebar} = useSidebarStore();
 
     // 사이드메뉴 전체 열기 닫기
-    const toggleSideMenu = () => {
-        setIsOpenSideMenu(isOpenSideMenu => !isOpenSideMenu);
+    const toggleSidebar = () => {
+        setIsOpenSidebar(!isOpenSidebar);
     }
 
     return (
         <>
             <div>
                 {/* 사이드바 열림/접힘 */}
-                <span onClick={toggleSideMenu}><CiMenuBurger className="size-8" /></span>
+                <span onClick={toggleSidebar}><CiMenuBurger className="size-8" /></span>
             </div>
             <div className="flex items-center">
                 {/* 비로그인 */}
