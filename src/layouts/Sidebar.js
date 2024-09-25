@@ -1,5 +1,6 @@
 import defaultProfile from '../images/default_profile.png';
 import useSidebarStore from '../stores/useSidebarStore';
+import Profile from '../components/Profile';
 
 const Sidebar = () => {
     const {groupCategoryOpenList, pushGroupCategoryOpenList, popGroupCategoryOpenList} = useSidebarStore();
@@ -20,11 +21,10 @@ const Sidebar = () => {
 
     return (
         <div className="bg-gray-600 pl-4 pr-px rounded-lg h-full flex flex-col">
-            <div className="pb-8 pt-4 pr-4 flex items-center">
-                <img className="rounded-full" src={defaultProfile} width="40" height="40" />
-                <span className="ml-4">123가4567</span>
+            <div className='pb-8 pt-4'>
+                <Profile />
             </div>
-
+            
             <div className="pb-4 pr-4 flex flex-col overflow-y-auto">
                 {/* 그룹 카테고리 */}
                 <div>

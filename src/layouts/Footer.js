@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <div>
-            Copyright 2014. (KSK) all rights reserved.
+            Copyright 2024. (KSK) all rights reserved.
         </div>
     )
 }

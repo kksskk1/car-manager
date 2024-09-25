@@ -13,7 +13,7 @@ const Layout = (props) => {
             </aside>
             <div className="w-full min-h-screen p-4 flex flex-col">
                 <header className="flex justify-between px-4">
-                    <Header />
+                    <Header />/
                 </header>
                 <main className="grow">
                     {props.children}

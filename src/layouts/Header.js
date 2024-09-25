@@ -1,9 +1,12 @@
-import { CiMenuBurger } from "react-icons/ci";
-import { useState } from "react";
+import Button from "../components/Button";
+import Icon from "../components/Icon";
+import Profile from "../components/Profile";
 import useSidebarStore from "../stores/useSidebarStore";
+import { HiOutlineBellAlert } from "react-icons/hi2";
+import { CiMenuBurger } from "react-icons/ci";
 
 const Header = () => {
-    const {isOpenSidebar, setIsOpenSidebar} = useSidebarStore();
+    const { isOpenSidebar, setIsOpenSidebar } = useSidebarStore();
 
     // 사이드메뉴 전체 열기 닫기
     const toggleSidebar = () => {
@@ -14,19 +17,19 @@ const Header = () => {
         <>
             <div>
                 {/* 사이드바 열림/접힘 */}
-                <span onClick={toggleSidebar}><CiMenuBurger className="size-8" /></span>
+                <span onClick={toggleSidebar}>
+                    <Icon icon={CiMenuBurger} size="2rem" />
+                </span>
             </div>
+            
             <div className="flex items-center">
                 {/* 비로그인 */}
-                <span className="border-solid border border-sky-600 py-2 px-4 rounded-lg bg-white">로그인</span>
-                <span className="border-solid border border-sky-600 py-2 px-4 rounded-lg ml-4 bg-white">회원가입</span>
+                <Button title="로그인" />
+                <Button title="회원가입" addClass="ml-4" />
 
                 {/* 로그인 */}
-                {/* <HiOutlineBellAlert className="size-8 ml-4" />
-                        <div className="bg-white border-solid border border-sky-600 py-2 px-4 flex items-center rounded-lg ml-4">
-                            <img className="rounded-full" src={defaultProfile} width="40" height="40" />
-                            <span className="ml-4">123가4567</span>
-                        </div> */}
+                <Icon icon={HiOutlineBellAlert} size="2rem" addClass="ml-4" />
+                <Button title={Profile} addClass="ml-4" />
             </div>
         </>
     )
