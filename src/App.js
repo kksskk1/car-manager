@@ -1,5 +1,5 @@
 import Layout from './layouts/Layout';
-import Dashboard from './layouts/Dashboard';
+import Dashboard from './pages/Dashboard';
 
 function App() {    
     return (

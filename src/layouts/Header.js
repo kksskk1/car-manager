@@ -12,9 +12,9 @@ const Header = () => {
     const toggleSidebar = () => {
         setIsOpenSidebar(!isOpenSidebar);
     }
-
+    
     return (
-        <>
+        <header className="flex justify-between px-4">
             <div>
                 {/* 사이드바 열림/접힘 */}
                 <span onClick={toggleSidebar}>
@@ -31,7 +31,7 @@ const Header = () => {
                 <Icon icon={HiOutlineBellAlert} size="2rem" addClass="ml-4" />
                 <Button title={Profile} addClass="ml-4" />
             </div>
-        </>
+        </header>
     )
 }
 
