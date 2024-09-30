@@ -7,12 +7,8 @@ const Sidebar = () => {
     const { isOpenSidebar } = useSidebarStore();
     const className = 'w-80 h-screen py-4 pl-4 text-white ' + (isOpenSidebar ? '' : 'hidden');
     const category = [
-        { 'id': 1, 'type': 'group', 'title': '그룹1', 'options': [{ 'id': 1, 'title': '카테고리1' }, { 'id': 2, 'title': '카테고리2' }] },
-        { 'id': 2, 'type': 'group', 'title': '그룹2', 'options': [{ 'id': 1, 'title': '카테고리1' }, { 'id': 2, 'title': '카테고리2' }] },
-        { 'id': 3, 'type': 'default', 'title': '대시보드' },
-        { 'id': 4, 'type': 'default', 'title': '카테고리2' },
-        { 'id': 5, 'type': 'default', 'title': '카테고리3' },
-        { 'id': 6, 'type': 'default', 'title': '카테고리4' },
+        { 'id': 1, 'type': 'default', 'title': '대시보드' },
+        { 'id': 2, 'type': 'group', 'title': '관리', 'options': [{ 'id': 1, 'title': '관리1' }, { 'id': 2, 'title': '관리2' }] },
     ];
 
     return (
