@@ -7,6 +7,9 @@ const useSidebarStore = create((set, get) => ({
     // 그룹 카테고리 
     isOpenedGroupIndex: null,
     setIsOpenedGroupIndex: (index) => {
+        if(get().isOpenedGroupIndex == index) {
+            index = null;
+        }
         set({ isOpenedGroupIndex: index })
     },
 

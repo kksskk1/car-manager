@@ -1,6 +1,7 @@
 import useSidebarStore from '../stores/useSidebarStore';
+import { Link } from 'react-router-dom';
 
-const SidebarGroupCategory = ({ categoryIndex, categoryItem }) => {    
+const SidebarGroupCategory = ({ categoryIndex, categoryItem }) => {
     const title = categoryItem.title;
     const options = categoryItem.options;
     const { selectedColor, isSelectedCategory, selectedCategory, isOpenedGroupIndex, setIsOpenedGroupIndex } = useSidebarStore();
@@ -19,7 +20,7 @@ const SidebarGroupCategory = ({ categoryIndex, categoryItem }) => {
             <ul className={isOpenSideGroupMenu(categoryIndex) ? '' : 'hidden'}>
                 {options.map((optionItem, optionIndex) => {
                     const liClassName = 'mt-1 p-2 rounded-lg ' + (isSelectedCategory(categoryIndex, optionIndex) ? selectedColor : '');
-                    return <li key={optionItem.id} onClick={() => {selectedCategory(categoryIndex, optionIndex)}} className={liClassName}>{optionItem.title}</li>;
+                    return <Link to={optionItem.link} key={optionItem.id}><li onClick={() => { selectedCategory(categoryIndex, optionIndex) }} className={liClassName}>{optionItem.title}</li></Link>;
                 })}
             </ul>
         </div>

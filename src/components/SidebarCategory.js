@@ -1,4 +1,5 @@
 import useSidebarStore from '../stores/useSidebarStore';
+import { Link } from 'react-router-dom';
 
 const SidebarCategory = ({ categoryIndex, categoryItem }) => {
     const title = categoryItem.title;
@@ -6,9 +7,7 @@ const SidebarCategory = ({ categoryIndex, categoryItem }) => {
     const className = 'mt-1.5 p-4 rounded-lg ' + (isSelectedCategory(categoryIndex, null) ? selectedColor : '');
 
     return (
-        <ul>
-            <li onClick={() => {selectedCategory(categoryIndex, null)}} className={className}>{title}</li>
-        </ul>
+        <Link to={categoryItem.link}><div onClick={() => {selectedCategory(categoryIndex, null)}} className={className}>{title}</div></Link>
     )
 }
 
