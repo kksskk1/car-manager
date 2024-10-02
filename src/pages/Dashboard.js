@@ -104,17 +104,14 @@ const Dashboard = () => {
     ];
 
     return (
-        <>
-            <div className="text-lg pl-4 pt-8 font-bold">대시보드</div>
-            <div className="flex flex-wrap">
-                <div className="min-w-[450px] w-1/2 h-[450px]">
-                    <LineChart data={datatmp} />
-                </div>
-                <div className="min-w-[450px] w-1/2 h-[450px]">
-                    <LineChart data={datatmp} />
-                </div>
+        <div className="flex flex-wrap">
+            <div className="min-w-[450px] w-1/2 h-[450px]">
+                <LineChart data={datatmp} />
             </div>
-        </>
+            <div className="min-w-[450px] w-1/2 h-[450px]">
+                <LineChart data={datatmp} />
+            </div>
+        </div>
     )
 }
 

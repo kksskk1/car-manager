@@ -1,10 +1,11 @@
 import useSidebarStore from '../stores/useSidebarStore';
 import { Link } from 'react-router-dom';
 
-const SidebarGroupCategory = ({ categoryIndex, categoryItem }) => {
+const SidebarGroupCategory = ({ categoryItem }) => {
     const title = categoryItem.title;
+    const categoryIndex = categoryItem.id;
     const options = categoryItem.options;
-    const { selectedColor, isSelectedCategory, selectedCategory, isOpenedGroupIndex, setIsOpenedGroupIndex } = useSidebarStore();
+    const { selectedColor, isSelectedCategory, setSelectedInfo, isOpenedGroupIndex, setIsOpenedGroupIndex } = useSidebarStore();
 
     // 그룹 메뉴 열림 닫힘 여부
     const isOpenSideGroupMenu = (index) => {
@@ -20,7 +21,12 @@ const SidebarGroupCategory = ({ categoryIndex, categoryItem }) => {
             <ul className={isOpenSideGroupMenu(categoryIndex) ? '' : 'hidden'}>
                 {options.map((optionItem, optionIndex) => {
                     const liClassName = 'mt-1 p-2 rounded-lg ' + (isSelectedCategory(categoryIndex, optionIndex) ? selectedColor : '');
-                    return <Link to={optionItem.link} key={optionItem.id}><li onClick={() => { selectedCategory(categoryIndex, optionIndex) }} className={liClassName}>{optionItem.title}</li></Link>;
+                    const selectedInfo = {
+                        selectedIndex: categoryIndex,
+                        selectedGroupOptionIndex: optionIndex,
+                        selectedTitle: title + ' > ' + optionItem.title,
+                    }
+                    return <Link to={optionItem.link} key={optionItem.id}><li onClick={() => { setSelectedInfo(selectedInfo) }} className={liClassName}>{optionItem.title}</li></Link>;
                 })}
             </ul>
         </div>

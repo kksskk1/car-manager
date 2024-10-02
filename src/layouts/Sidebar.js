@@ -11,8 +11,9 @@ const Sidebar = () => {
         {
             'id': 2, 'type': 'group', 'title': '관리',
             'options': [
-                { 'id': 1, 'title': '관리1', 'link': '/notfound' },
-                { 'id': 2, 'title': '관리2', 'link': '/create' }
+                { 'id': 1, 'title': '관리1', 'link': '/fuel' },
+                { 'id': 2, 'title': '관리2', 'link': '/maintain' },
+                { 'id': 3, 'title': '관리3', 'link': '/repair' }
             ]
         },
     ];
@@ -25,15 +26,15 @@ const Sidebar = () => {
                 </div>
 
                 <div className="pb-4 pr-4 flex flex-col overflow-y-auto">
-                    {category.map((categoryItem, categoryIndex) => {
+                    {category.map((categoryItem) => {
                         let categoryComponent = null;
                         switch (categoryItem.type) {
                             case 'group':
-                                categoryComponent = <SidebarGroupCategory key={categoryItem.id} categoryIndex={categoryIndex} categoryItem={categoryItem} />;
+                                categoryComponent = <SidebarGroupCategory key={categoryItem.id} categoryItem={categoryItem} />;
                                 break;
 
                             case 'default':
-                                categoryComponent = <SidebarCategory key={categoryItem.id} categoryIndex={categoryIndex} categoryItem={categoryItem} />;
+                                categoryComponent = <SidebarCategory key={categoryItem.id} categoryItem={categoryItem} />;
                                 break;
                         }
                         return categoryComponent;
