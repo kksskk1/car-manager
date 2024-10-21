@@ -1,7 +1,7 @@
 import useSidebarStore from "../stores/useSidebarStore";
 import Profile from '../components/Profile';
-import SidebarGroupCategory from '../components/SidebarGroupCategory';
-import SidebarCategory from '../components/SidebarCategory';
+import SidebarGroupCategory from './SidebarGroupCategory';
+import SidebarCategory from './SidebarCategory';
 
 const Sidebar = () => {
     const { isOpenSidebar } = useSidebarStore();

@@ -14,11 +14,11 @@ const Header = () => {
     }
     
     return (
-        <header className="flex justify-between px-4">
-            <div>
+        <header className="flex items-center justify-between px-4">
+            <div className="">
                 {/* 사이드바 열림/접힘 */}
                 <span onClick={toggleSidebar}>
-                    <Icon icon={CiMenuBurger} size="2rem" />
+                    <Icon icon={CiMenuBurger} size="30" />
                 </span>
             </div>
             
@@ -28,7 +28,7 @@ const Header = () => {
                 <Button title="회원가입" addClass="ml-4" />
 
                 {/* 로그인 */}
-                <Icon icon={HiOutlineBellAlert} size="2rem" addClass="ml-4" />
+                <Icon icon={HiOutlineBellAlert} size="30" addClass="ml-4" />
                 <Button title={Profile} addClass="ml-4" />
             </div>
         </header>
