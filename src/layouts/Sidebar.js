@@ -6,17 +6,23 @@ import SidebarCategory from './SidebarCategory';
 const Sidebar = () => {
     const { isOpenSidebar } = useSidebarStore();
     const className = 'w-80 h-screen py-4 pl-4 text-white ' + (isOpenSidebar ? '' : 'hidden');
-    const category = [
-        { 'id': 1, 'type': 'default', 'title': '대시보드', 'link': '/' },
-        {
-            'id': 2, 'type': 'group', 'title': '관리',
-            'options': [
-                { 'id': 1, 'title': '관리1', 'link': '/fuel' },
-                { 'id': 2, 'title': '관리2', 'link': '/maintain' },
-                { 'id': 3, 'title': '관리3', 'link': '/repair' }
-            ]
-        },
-    ];
+    
+    let category = JSON.parse(localStorage.getItem('category'));
+    if(!category) {
+        const categoryData = [
+            { 'id': 1, 'type': 'default', 'title': '대시보드', 'link': '/' },
+            {
+                'id': 2, 'type': 'group', 'title': '관리',
+                'options': [
+                    { 'id': 1, 'title': '관리1', 'link': '/fuel' },
+                    { 'id': 2, 'title': '관리2', 'link': '/maintain' },
+                    { 'id': 3, 'title': '관리3', 'link': '/repair' }
+                ]
+            },
+        ];
+        localStorage.setItem('category', JSON.stringify(categoryData));
+        category = JSON.parse(localStorage.getItem('category'));
+    }
 
     return (
         <aside className={className}>
